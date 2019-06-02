@@ -20,6 +20,8 @@ import java.io.UnsupportedEncodingException;
 
 public class MainActivity extends AppCompatActivity {
 
+    private final String TOPIC = "gas_concentration";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,14 +33,14 @@ public class MainActivity extends AppCompatActivity {
 
         String clientId = MqttClient.generateClientId();
         final MqttAndroidClient client =
-                new MqttAndroidClient(this.getApplicationContext(), "tcp://m12.cloudmqtt.com:17389",
+                new MqttAndroidClient(this.getApplicationContext(), "tcp://m15.cloudmqtt.com:19946",
                         clientId);
 
         MqttConnectOptions options = new MqttConnectOptions();
         options.setMqttVersion(MqttConnectOptions.MQTT_VERSION_3_1);
         options.setCleanSession(false);
-        options.setUserName("snyhhyzw");
-        options.setPassword("LpZK32PEBN5q".toCharArray());
+        options.setUserName("zyjumxdq");
+        options.setPassword("Sztqq7N4KguW".toCharArray());
         try {
             IMqttToken token = client.connect(options);
             //IMqttToken token = client.connect();
@@ -48,11 +50,9 @@ public class MainActivity extends AppCompatActivity {
                     // We are connected
                     Log.d("file", "onSuccess");
                     //publish(client,"payloadd");
-                    subscribe(client,"dht");
-                    subscribe(client,"bmp");
+                    subscribe(client,TOPIC);
                     client.setCallback(new MqttCallback() {
                         TextView tt = (TextView) findViewById(R.id.tt);
-                        TextView th = (TextView) findViewById(R.id.th);
                         @Override
                         public void connectionLost(Throwable cause) {
 
@@ -61,12 +61,8 @@ public class MainActivity extends AppCompatActivity {
                         public void messageArrived(String topic, MqttMessage message) throws Exception {
                             Log.d("file", message.toString());
 
-                            if (topic.equals("dht")){
+                            if (topic.equals(TOPIC)){
                                 tt.setText(message.toString());
-                            }
-
-                            if (topic.equals("bmp")){
-                                th.setText(message.toString());
                             }
 
                         }

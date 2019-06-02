@@ -15,7 +15,7 @@
         android:fontFamily="monospace"
         android:gravity="center"
         android:text="...."
-        android:textSize="30sp"
+        android:textSize="14sp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,38 +24,13 @@
         android:layout_width="182dp"
         android:layout_height="69dp"
         android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
         android:layout_marginTop="64dp"
         android:fontFamily="monospace"
         android:gravity="center"
-        android:text="Temperature"
-        android:textSize="24sp"
+        android:text="@string/gas_concentration"
+        android:textSize="14sp"
         app:layout_constraintEnd_toStartOf="@+id/tt"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/humid"
-        android:layout_width="186dp"
-        android:layout_height="69dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginTop="12dp"
-        android:fontFamily="monospace"
-        android:gravity="center"
-        android:text="Humidity"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/th"
-        app:layout_constraintTop_toBottomOf="@+id/temp" />
-
-    <TextView
-        android:id="@+id/th"
-        android:layout_width="104dp"
-        android:layout_height="63dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginTop="20dp"
-        android:fontFamily="monospace"
-        android:gravity="center"
-        android:text="...."
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tt" />
 
 </android.support.constraint.ConstraintLayout>

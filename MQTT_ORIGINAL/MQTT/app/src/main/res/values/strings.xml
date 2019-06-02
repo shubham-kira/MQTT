@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Weather Master</string>
+    <string name="gas_concentration">Gas Concentration</string>
 </resources>
